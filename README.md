@@ -3,7 +3,7 @@ Cruzhacks 2024
 
 Running:
 run "node server.js" in server directory     
-run "npm run" in slughug directory      
+run "npm start" in slughug directory      
 
 # Getting Started with Create React App
 
