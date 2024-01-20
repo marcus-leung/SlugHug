@@ -1,9 +1,12 @@
 import './App.css';
+import Login from './components/Login';
+import Main from './components/Main';
 
 function App() {
   return (
     <div className="App">
-      Hello Cruzhacks
+        <Login />
+        <Main />
     </div>
   );
 }
