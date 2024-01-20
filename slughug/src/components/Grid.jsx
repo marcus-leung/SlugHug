@@ -10,7 +10,6 @@ const Grid = () => {
     if (!isMessageOpen) {
       setMessageContent(text);
       setIsMessageOpen(true);
-      console.log("CLICKEDZ");
     }
   };
 

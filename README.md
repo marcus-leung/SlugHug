@@ -1,9 +1,13 @@
 # SlugHug
 Cruzhacks 2024
 
+Setup:
+run "npm install @auth0/auth0-react" in slughub (client) directory
+
 Running:
 run "node server.js" in server directory     
 run "npm start" in slughug directory      
+
 
 # Getting Started with Create React App
 
