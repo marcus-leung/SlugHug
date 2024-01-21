@@ -11,3 +11,6 @@
     animation: jump 0.5s ease;
   }
   
+  textarea {
+    resize:none;
+  }

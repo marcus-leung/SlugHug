@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Slug from "./Slug";
 import Read from "./Read";
+import Reply from "./Reply";
 
 const Grid = () => {
-  const [messageContent, setMessageContent] = useState("");
   const [isMessageOpen, setIsMessageOpen] = useState(false);
   const [db, setDBState] = useState([])
   // adjust let -> setState
@@ -21,12 +21,28 @@ const Grid = () => {
       console.error(err)
     }
   }
+  const [isReplyOpen, setIsReplyOpen] = useState(false);
 
-  const handleSlugClick = (text) => {
-    if (!isMessageOpen) {
-      setMessageContent(text);
-      setIsMessageOpen(true);
-    }
+  const openMessage = () => {
+    setIsMessageOpen(true);
+  };
+
+  const closeMessageModal = () => {
+    setIsMessageOpen(false);
+  };
+
+  const openReply = () => {
+    setIsMessageOpen(false);
+    setIsReplyOpen(true);
+  };
+
+  const closeReply = () => {
+    setIsReplyOpen(false);
+  };
+
+  const handleSend = () => {
+    setIsMessageOpen(false);
+    setIsReplyOpen(false);
   };
 
   // Call to server and get the shiz
@@ -44,9 +60,22 @@ const Grid = () => {
       ))}
       </div>
 
-      {isMessageOpen && (
-          <Read message={messageContent} onClick={() => setIsMessageOpen(false)}/>
-      )}
+      <Read
+        open={isMessageOpen}
+        close={closeMessageModal}
+        reply={openReply}
+        send={handleSend}
+        content="Modal message"
+        head = "i like head"
+      />
+
+      <Reply
+        open={isReplyOpen}
+        close={closeReply}
+        reply={openReply}
+        send={handleSend}
+        content="Reply message"
+      />
     </div>
   );
 };
