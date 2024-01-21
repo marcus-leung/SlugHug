@@ -32,7 +32,7 @@ const Reply = ({ open, close, reply, send, content }) => {
               type="text"
               id="message"
               name="Message"
-              subject={subject}
+              value={subject}
               onChange={(e) => setSubject(e.target.value)}
               className="block  mx-auto p-3 rounded-lg  bg-yellow-100"
             ></textarea>
@@ -48,7 +48,7 @@ const Reply = ({ open, close, reply, send, content }) => {
               type="text"
               id="message"
               name="Message"
-              message={replyMessage}
+              value={replyMessage}
               onChange={(e) => setReplyMessage(e.target.value)}
               className="block  mx-auto p-3 rounded-lg  bg-yellow-100"
             ></textarea>
