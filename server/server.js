@@ -21,7 +21,7 @@ app.listen(port, async () => {
   });
   console.log(`Server is running on port: ${port}`);
   
-  /* successful database push
+  /* successful CRUD database push
   let myobj = {
     name: "test_guy",
     age: 89,
@@ -32,11 +32,6 @@ app.listen(port, async () => {
     response.json(res);
   });
   */
-  let myobj = {
-    userName: "Bob",
-    userType: "regular"
-  };
-  createUser(myobj);
 });
 
 // Create a user
@@ -98,7 +93,19 @@ async function getMessages() {
   try {
     const response = await fetch('http://localhost:5000/messages')
     const result = await response.json();
-    
+
+    console.log("Success:", result)
+  } catch (err) {
+    console.error(err)
+  }
+}
+
+// Get an inbox
+async function getInbox(id) {
+  try {
+    const response = await fetch('http://localhost:5000/inbox/get/'+id)
+    const result = await response.json();
+
     console.log("Success:", result)
   } catch (err) {
     console.error(err)
