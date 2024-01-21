@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import SlugWindow from "../assets/SlugWindow.png";
 
-const Reply = ({ open, close, reply, send, content }) => {
+const Reply = ({ open, close, reply, send, content, head }) => {
+  
+  const [subject, setSubject] = useState('');
+  const [replyMessage, setReplyMessage] = useState('');
+
+  const handleReplyClick = (text, head) => {
+    setSubject(head);
+    setReplyMessage(text);
+    console.log(head, text)
+  }
+
   if (!open) {
     return null;
   }
-
-  const [subject, setSubject] = useState('');
-  const [replyMessage, setReplyMessage] = useState('');
 
   return (
     <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50">
