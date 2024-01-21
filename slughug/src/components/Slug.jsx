@@ -11,7 +11,7 @@ const Slug = () => {
   const slug_arr = [Slug1, Slug2, Slug3, Slug4, Slug5, Slug6, Slug7];
 
   const rand_index = Math.floor(Math.random() * slug_arr.length);
-  
+
   const [jump, setJump] = useState(false);
   useEffect(() => {
     const timer = setInterval(() => {
@@ -19,7 +19,7 @@ const Slug = () => {
 
       // Reset jump after animation duration (500ms)
       setTimeout(() => setJump(false), 500);
-    }, Math.random() * 5000 + 3000); // Random interval between 1s and 4s
+    }, Math.random() * 7500 + 500); // Random interval between 1s and 4s
 
     return () => clearInterval(timer);
   }, []);

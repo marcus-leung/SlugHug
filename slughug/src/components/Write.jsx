@@ -24,10 +24,17 @@ const Write = ({ onClick }) => {
         </div>
 
         <button
-          className="absolute mt-4 bg-yellow-600 shadow-md text-white px-4 py-2 rounded bottom-0 right-0 -translate-y-12 -translate-x-12"
+          className="absolute mt-4 bg-yellow-600 shadow-md text-white px-4 py-2 rounded bottom-0 left-0 -translate-y-12 translate-x-12"
           onClick={onClick}
         >
           Close
+        </button>
+
+        <button
+          className="absolute mt-4 bg-green-600 shadow-md text-white px-4 py-2 rounded bottom-0 right-0 -translate-y-12 -translate-x-12"
+          onClick={onClick}
+        >
+          Send
         </button>
       </div>
     </div>
