@@ -9,6 +9,29 @@ import backgroundImage from '../assets/bgdone.png';
 const Main = () => {
   const [isAccountOpen, setIsAccountOpen] = useState(false);
   const [isNewMessageOpen, setNewMessageOpen] = useState(false);
+  const [writeContent, setWriteContent] = useState("");
+  const [writeHead, setWriteHead] = useState("");
+
+  const openMessage = () => {
+    setNewMessageOpen(false);
+  };
+
+  const closeMessage = () => {
+    setNewMessageOpen(false);
+  };
+
+  const onMessageChange = (content) => {
+    setWriteContent(content);
+  };
+
+  const onHeadChange = (content) => {
+    setWriteHead(content);
+  };
+
+  const handleSend = () => {
+    setNewMessageOpen(false);
+  }
+
 
   return (
     <div style={{ 
@@ -28,7 +51,15 @@ const Main = () => {
 
 
       {isNewMessageOpen && (
-          <Write onClick={() => setNewMessageOpen(false)} />
+          <Write
+            open={isNewMessageOpen}
+            close={closeMessage}
+            send={handleSend}
+            content={writeContent}
+            head={writeHead}
+            onHeadChange={onHeadChange}
+            onMessageChange={onMessageChange}
+          />
       )}
 
       <div className="absolute top-0 right-0 rounded p-4">

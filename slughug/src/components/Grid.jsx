@@ -6,8 +6,8 @@ import Reply from "./Reply";
 
 const Grid = () => {
   const [isMessageOpen, setIsMessageOpen] = useState(false);
-  const [messageContent, setMessageContent] = useState("");  const [isClosing, setIsClosing] = useState(false); //to handle closing animation
-
+  const [messageContent, setMessageContent] = useState("");  
+  const [isClosing, setIsClosing] = useState(false); //to handle closing animation
   const [repliedContent, setRepliedContent] = useState("");
   const [repliedHead, setRepliedHead] = useState("");
   const [messageHead, setMessageHead] = useState("");
