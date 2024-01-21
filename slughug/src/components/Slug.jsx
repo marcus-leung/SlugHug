@@ -8,7 +8,7 @@ import Slug6 from "../assets/Slugs/GridSlug6.png";
 import Slug7 from "../assets/Slugs/GridSlug7.png";
 import TherapistSlug1 from "../assets/Slugs/TherapistSlug1.png";
 
-const Slug = ({ type }) => {
+const Slug = ({ type, sender, receiver, head, content}) => {
   const slug_arr = [Slug1, Slug2, Slug3, Slug4, Slug5, Slug6, Slug7];
 
   const rand_index = Math.floor(Math.random() * slug_arr.length);

@@ -6,7 +6,7 @@ import LoginButton from "./LoginButton";
 async function findOrCreateUser(userName) {
     try {
         // Sending a GET request to the backend to find the user by userName
-        const response = await fetch(`http://localhost:5000/users/find-by-name?userName=${encodeURIComponent(userName)}`);
+        const response = await fetch(`http://localhost:5000/users/find-by-name/`+userName);
 
         // If the response is OK and the user is found
         if (response.ok) {
