@@ -5,7 +5,9 @@ import Reply from "./Reply";
 
 const Grid = () => {
   const [isMessageOpen, setIsMessageOpen] = useState(false);
-  const [db, setDBState] = useState([])
+  const [messageContent, setMessageContent] = useState("");
+  const [messageHead, setMessageHead] = useState("");
+  const [db, setDBState] = useState([]);
   // adjust let -> setState
   // instead of db = -> setDBContent(data)
 
@@ -45,6 +47,14 @@ const Grid = () => {
     setIsReplyOpen(false);
   };
 
+  const handleSlugClick = (text, head) => {
+    if (!isMessageOpen) {
+      setMessageContent(text);
+      setMessageHead(head);
+      setIsMessageOpen(true);
+    }
+  }
+
   // Call to server and get the shiz
   useEffect(() => {
     getMessages()
@@ -54,7 +64,7 @@ const Grid = () => {
     <div className="pt-2 w-5/6 h-3/4 mt-40 justify-center items-center ">
       <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4 px-5 py-5 bg-green-500">
         {db.map((item, index) => (
-        <div key={index} onClick={() => handleSlugClick(item.messageContent)}>
+        <div key={index} onClick={() => handleSlugClick(item.messageContent, item.messageHead)}>
           <Slug type={item.messageType} sender={item.messageSender} receiver={item.messageReceiver} head={item.messageHead} content={item.messageContent}/>
         </div>
       ))}
@@ -65,8 +75,8 @@ const Grid = () => {
         close={closeMessageModal}
         reply={openReply}
         send={handleSend}
-        content="Modal message"
-        head = "i like head"
+        content={messageContent}
+        head = {messageHead}
       />
 
       <Reply
