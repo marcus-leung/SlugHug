@@ -71,7 +71,7 @@ recordRoutes.route("/users/find-by-name/:name").get(async function (req, respons
 recordRoutes.route("/users/add").post(function (req, response) {
   let db_connect = dbo.getDb();
   let myobj = {
-    userName: req.body.userName,
+    userName: new ObjectId(req.body.userName),
     userType: req.body.userType
   };
   db_connect.collection("users").insertOne(myobj, function (err, res) {

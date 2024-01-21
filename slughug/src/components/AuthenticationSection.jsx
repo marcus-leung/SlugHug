@@ -55,7 +55,7 @@ const AuthenticationSection = () => {
     useEffect(() => {
         console.log("useEffect triggered", { isAuthenticated, user });
         if(isAuthenticated){
-            findOrCreateUser(user.name);
+            findOrCreateUser(user.email);
         }
 
     }, [user, isAuthenticated]);
