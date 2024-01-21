@@ -3,11 +3,6 @@ import SlugWindow from "../assets/SlugWindow.png";
 
 const Reply = ({ open, close, reply, send, content, head, onHeadChange, onMessageChange }) => {
 
-const handleReplyClick = (text, head) => {
-    setSubject(head);
-    setReplyMessage(text);
-}
-
   if (!open) {
     return null;
   }

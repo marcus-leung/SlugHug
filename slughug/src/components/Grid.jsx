@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
 import Slug from "./Slug";
 import Read from "./Read";
 import Reply from "./Reply";
@@ -10,6 +11,8 @@ const Grid = () => {
   const [repliedHead, setRepliedHead] = useState("");
   const [messageHead, setMessageHead] = useState("");
   const [db, setDBState] = useState([]);
+  const [reply, setReplyState] = useState({})
+  const [authObject, setAuth] = useState(useAuth0());
   // adjust let -> setState
   // instead of db = -> setDBContent(data)
 
@@ -25,6 +28,25 @@ const Grid = () => {
       console.error(err)
     }
   }
+
+  // Create a response to a given userID, it's in the data object
+  async function createResponse(data) {
+    try {
+      const response = await fetch('http://localhost:5000/inbox/add', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data)
+      })
+
+      const result = await response.json();
+      console.log("Success:", result)
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
   const [isReplyOpen, setIsReplyOpen] = useState(false);
 
   const openMessage = () => {
@@ -47,6 +69,17 @@ const Grid = () => {
   const handleSend = () => {
     setIsMessageOpen(false);
     setIsReplyOpen(false);
+    setReplyState({
+      messageReceiver: authObject.user, 
+      messageHead: repliedHead, 
+      messageContent: repliedContent, 
+      messageType: "regular", 
+      messageVisibility: "private"
+    })
+
+    // THIS BAD BOY SENDS THAT DATA YKNOW
+    createResponse(reply)
+
     console.log(repliedHead, repliedContent)
   };
 
