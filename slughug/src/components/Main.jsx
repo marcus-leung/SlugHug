@@ -3,16 +3,30 @@ import Account from "./Account";
 import Grid from "./Grid";
 import Write from "./Write";
 import SlugIcon from "../assets/SlugIcon.png";
+import composeButton from "../assets/compose.png";
+import backgroundImage from '../assets/bgdone.png';
 
 const Main = () => {
   const [isAccountOpen, setIsAccountOpen] = useState(false);
   const [isNewMessageOpen, setNewMessageOpen] = useState(false);
 
   return (
-    <div className="flex min-h-screen justify-center items-center bg-green-400">
-      <div className="cursor-pointer absolute left-5 top-5 bg-gray-400 rounded p-4" onClick={() => setNewMessageOpen(true)}>
-        Send Message
+    <div style={{ 
+      backgroundImage: `url(${backgroundImage})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      minHeight: '100vh', // Ensures it covers the whole viewport height
+      minWidth: '100vw'  // Ensures it covers the whole viewport width
+    }}>
+    <div className="flex min-h-screen justify-center items-center">
+      <div className="absolute top-0 left-0 rounded p-4" onClick={() => setNewMessageOpen(true)}>
+      <div onClick={() => setNewMessageOpen(true)}>
+        {/* new button for compose */}
+        <img src={composeButton} alt="Send Message" height={75} width={75} draggable="false"/>
       </div>
+      </div>
+
+
       {isNewMessageOpen && (
           <Write onClick={() => setNewMessageOpen(false)} />
       )}
@@ -29,6 +43,7 @@ const Main = () => {
       )}
 
       <Grid />
+    </div>
     </div>
   );
 };
