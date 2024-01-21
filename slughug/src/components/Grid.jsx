@@ -24,7 +24,7 @@ const Grid = () => {
       </div>
 
       {isMessageOpen && (
-          <Read message="This is a message" onClick={() => setIsMessageOpen(false)}/>
+          <Read message={messageContent} onClick={() => setIsMessageOpen(false)}/>
       )}
     </div>
   );

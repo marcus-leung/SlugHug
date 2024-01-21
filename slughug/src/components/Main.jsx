@@ -19,7 +19,7 @@ const Main = () => {
 
       <div className="absolute top-0 right-0 rounded p-4">
         <button onClick={() => setIsAccountOpen(true)}>
-          <img alt="Slug Icon" src={SlugIcon} height={75} width={75} />
+          <img alt="Slug Icon" src={SlugIcon} height={75} width={75} draggable="false"/>
         </button>
       </div>
       {isAccountOpen && (

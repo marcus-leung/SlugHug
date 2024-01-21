@@ -14,7 +14,7 @@ const Slug = () => {
   
   return (
     <div className='cursor-pointer aspect-square w-[170px] h-[170px] justify-center items-center'>
-        <img src={slug_arr[rand_index]} alt="slug" />
+        <img src={slug_arr[rand_index]} alt="slug" draggable="false"/>
     </div>
   )
 }

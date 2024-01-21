@@ -5,7 +5,7 @@ const Write = ({ onClick }) => {
   return (
     <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center">
       <div className="w-full h-5/6 relative">
-        <img src={SlugWindow} alt="Slug Window" className="block mx-auto" />
+        <img src={SlugWindow} alt="Slug Window" className="block mx-auto" draggable="false"/>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-md mt-20 text-black">
           <form>
             <label

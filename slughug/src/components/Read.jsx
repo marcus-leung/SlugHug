@@ -6,7 +6,7 @@ const Read = ({ message, onClick }) => {
   return (
     <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center">
       <div className="w-full h-5/6">
-        <img src={SlugWindow} alt="Slug Window"/>
+        <img src={SlugWindow} alt="Slug Window" draggable="false"/>
         <p className="absolute text-md text-white top-1/2 left-1/2">
           {message}
           </p>
