@@ -10,6 +10,8 @@ const Grid = () => {
   const [repliedContent, setRepliedContent] = useState("");
   const [repliedHead, setRepliedHead] = useState("");
   const [messageHead, setMessageHead] = useState("");
+  const [messageSender, setMessageSender] = useState("");
+  const [messageReceiver, setMessageReceiver] = useState("");
   const [db, setDBState] = useState([]);
   const [reply, setReplyState] = useState({})
   const [authObject, setAuth] = useState(useAuth0());
@@ -77,7 +79,7 @@ const Grid = () => {
       messageVisibility: "private"
     })
     const replyObj = {
-      messageReceiver: authObject.user, 
+      messageReceiver: messageSender, 
       messageHead: repliedHead, 
       messageContent: repliedContent, 
       messageType: "regular", 
@@ -96,10 +98,12 @@ const Grid = () => {
     setRepliedHead(content);
   };
 
-  const handleSlugClick = (text, head) => {
+  const handleSlugClick = (text, head, sender, receiver) => {
     if (!isMessageOpen) {
       setMessageContent(text);
       setMessageHead(head);
+      setMessageSender(sender);
+      setMessageReceiver(receiver);
       setIsMessageOpen(true);
     }
   }
@@ -113,7 +117,7 @@ const Grid = () => {
     <div className="pt-2 w-5/6 h-3/4 mt-40 justify-center items-center ">
       <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4 px-5 py-5 bg-green-500">
         {db.map((item, index) => (
-        <div key={index} onClick={() => handleSlugClick(item.messageContent, item.messageHead)}>
+        <div key={index} onClick={() => handleSlugClick(item.messageContent, item.messageHead, item.messageSender, item.messageReceiver)}>
           <Slug type={item.messageType} sender={item.messageSender} receiver={item.messageReceiver} head={item.messageHead} content={item.messageContent}/>
         </div>
       ))}
