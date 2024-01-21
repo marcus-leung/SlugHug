@@ -73,7 +73,7 @@ const Reply = ({
               className="block  mx-auto p-3 rounded-lg  bg-yellow-100"
             ></textarea>
           </form>
-          </div>
+          
         </div>
 
         <button
@@ -89,6 +89,7 @@ const Reply = ({
         >
           Send
         </button>
+        </div>
       </div>
     </div>
   );

@@ -17,7 +17,7 @@ const Read = ({ open, close, reply, send, content, head}) => {
         <p className="absolute text-md text-black top-1/2 left-1/2 pt-5">
           {content}
           </p>
-          </div>
+          
         <button
           className="absolute mt-4 bg-yellow-600 shadow-md text-white px-4 py-2 rounded bottom-0 left-0 -translate-y-12 translate-x-12"
           onClick={close}
@@ -30,6 +30,7 @@ const Read = ({ open, close, reply, send, content, head}) => {
         >
           Reply
         </button>
+        </div>
       </div>
     </div>
   );
