@@ -95,6 +95,22 @@ recordRoutes.route("/users/get/:id").get(async function (req, response) {
     });
 
 });
+
+// This section will help you get a userID by their name
+recordRoutes.route("/users/getID/:name").get(async function (req, response) {
+  let db_connect = dbo.getDb();
+  let myquery = { userName: new ObjectId(req.params.id) };
+
+  db_connect
+    .collection("users")
+    .find(myquery)
+    .toArray()
+    .then((data) => {
+      console.log(data);
+      response.json(data);
+    });
+
+});
  
 // This section will help you update a user by id.
 recordRoutes.route("/users/update/:id").post(function (req, response) {
