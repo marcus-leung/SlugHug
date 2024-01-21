@@ -1,13 +1,16 @@
-import React from "react";
+import React, {useState} from "react";
 import SlugWindow from "../assets/SlugWindow.png";
 
-const Reply = ({ open, close, reply, send, content }) => {
+const Reply = ({ open, close, reply, send, content, head, onHeadChange, onMessageChange }) => {
+
+const handleReplyClick = (text, head) => {
+    setSubject(head);
+    setReplyMessage(text);
+}
+
   if (!open) {
     return null;
   }
-
-  const [subject, setSubject] = useState('');
-  const [replyMessage, setReplyMessage] = useState('');
 
   return (
     <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50">
@@ -32,8 +35,8 @@ const Reply = ({ open, close, reply, send, content }) => {
               type="text"
               id="message"
               name="Message"
-              value={subject}
-              onChange={(e) => setSubject(e.target.value)}
+              value={head}
+              onChange={(e) => onHeadChange(e.target.value)}
               className="block  mx-auto p-3 rounded-lg  bg-yellow-100"
             ></textarea>
             <label
@@ -48,8 +51,8 @@ const Reply = ({ open, close, reply, send, content }) => {
               type="text"
               id="message"
               name="Message"
-              value={replyMessage}
-              onChange={(e) => setReplyMessage(e.target.value)}
+              value={content}
+              onChange={(e) => onMessageChange(e.target.value)}
               className="block  mx-auto p-3 rounded-lg  bg-yellow-100"
             ></textarea>
           </form>
