@@ -7,15 +7,31 @@ import Slug5 from "../assets/Slugs/GridSlug5.png";
 import Slug6 from "../assets/Slugs/GridSlug6.png";
 import Slug7 from "../assets/Slugs/GridSlug7.png";
 import TherapistSlug1 from "../assets/Slugs/TherapistSlug1.png";
+import TherapistSlug2 from "../assets/Slugs/TherapistSlug2.png";
+import TherapistSlug3 from "../assets/Slugs/TherapistSlug3.png";
+import ReceiveSlug1 from "../assets/Slugs/ReceiveSlug1.png";
+import ReceiveSlug2 from "../assets/Slugs/ReceiveSlug2.png";
+
 
 const Slug = ({ type, sender, receiver, head, content}) => {
   const slug_arr = [Slug1, Slug2, Slug3, Slug4, Slug5, Slug6, Slug7];
+  const ther_arr = [TherapistSlug1, TherapistSlug2, TherapistSlug3];
+  const rece_arr = [ReceiveSlug1, ReceiveSlug2]
 
-  const rand_index = Math.floor(Math.random() * slug_arr.length);
+  const rand_slug_index = Math.floor(Math.random() * slug_arr.length);
+  const rand_ther_index = Math.floor(Math.random() * ther_arr.length);
+  const rand_rece_index = Math.floor(Math.random() * rece_arr.length);
 
-  let isProf = false;
-  if (type === "professional") {
-    isProf = true;
+  let selected_type;
+  switch (type) {
+    case 'professional':
+      selected_type = <img src={ther_arr[rand_ther_index]} alt="therapist slug" draggable="false" />
+      break;
+    case 'response':
+      selected_type = <img src={rece_arr[rand_rece_index]} alt="response slug" draggable="false" />
+      break;
+    default:
+      selected_type = <img src={slug_arr[rand_slug_index]} alt="slug" draggable="false" />
   }
 
   const [jump, setJump] = useState(false);
@@ -36,11 +52,7 @@ const Slug = ({ type, sender, receiver, head, content}) => {
         jump ? "jump" : ""
       }`}
     >
-      {isProf ? (
-        <img src={TherapistSlug1} alt="slug" draggable="false" />
-      ) : (
-        <img src={slug_arr[rand_index]} alt="slug" draggable="false" />
-      )}
+      {selected_type}
     </div>
   );
 };
