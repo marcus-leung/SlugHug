@@ -32,7 +32,7 @@ const Slug = ({ type, sender, receiver, head, content}) => {
   
   return (
     <div
-      className={`cursor-pointer aspect-square w-[170px] h-[170px] justify-center items-center ${
+      className={`cursor-pointer aspect-square w-[170px] h-[170px] justify-center items-center transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 duration-120 ${
         jump ? "jump" : ""
       }`}
     >

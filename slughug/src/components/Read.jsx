@@ -9,10 +9,13 @@ const Read = ({ open, close, reply, send, content, head}) => {
   return (
     
     <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center">
-      <div className="w-full h-5/6">
-        <img src={SlugWindow} alt="Slug Window" draggable="false"/>
-        <h1 className="absolute text-md text-black top-1/2 left-1/2 -translate-y-5">{head}</h1>
-        <p className="absolute text-md text-black top-1/2 left-1/2 pt-5">
+      <div className="w-full h-5/6 relative">
+        <div className="read-container">
+          <img src={SlugWindow} alt="Slug Window" draggable="false"/>
+        </div>
+        
+        <h1 className="absolute text-md text-black top-1/2 left-1/2 -translate-x-1/2 -translate-y-5 text-5xl">{head}</h1>
+        <p className="absolute text-md text-black top-1/2 left-1/2 -translate-x-1/2 pt-16 text-3xl">
           {content}
           </p>
         <button
