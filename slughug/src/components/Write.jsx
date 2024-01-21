@@ -2,13 +2,26 @@ import React from "react";
 import SlugWindow from "../assets/SlugWindow.png";
 
 const Write = ({ onClick }) => {
+
+  const handleWrite= (event) => {
+    event.preventDefault();
+    console.log("THIS IS FROM HANDLE FUNCTION!!!!!")
+    console.log(event.target.Subject.value)
+    console.log(event.target.Message.value)
+    //send();
+  };
+  
   return (
     <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50">
       <div className="w-full h-5/6 relative">
-        <div className="read-container">
-        <img src={SlugWindow} alt="Slug Window" className="block mx-auto" draggable="false"/>
+        <img
+          src={SlugWindow}
+          alt="Slug Window"
+          className="block mx-auto"
+          draggable="false"
+        />
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-md mt-20 text-black">
-          <form>
+          <form onSubmit={handleWrite}>
             <label
               htmlFor="message"
               className="font-bold block text-center mb-2 text-xl"
@@ -17,9 +30,23 @@ const Write = ({ onClick }) => {
             </label>
             <textarea
               type="text"
+              id="subject"
+              name="Subject"
+              className="block  mx-auto p-3 rounded-lg  bg-yellow-100"
+            ></textarea>
+            <label
+              htmlFor="message"
+              className="font-bold block text-center mb-2 text-xl pt-5"
+            >
+              Reply Message
+            </label>
+            <textarea
+              rows="8"
+              cols="90"
+              type="text"
               id="message"
               name="Message"
-              className="block  mx-auto p-3 rounded-lg w-[600px] h-[300px] bg-yellow-100"
+              className="block  mx-auto p-3 rounded-lg  bg-yellow-100"
             ></textarea>
           </form>
           </div>
