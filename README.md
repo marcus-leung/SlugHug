@@ -38,7 +38,7 @@ run "npm start" in slughug directory
 Deploying:       
 "npm run build"      
 
-Domain: (slughug.us)[https://www.slughug.us/]
+Domain: [slughug.us](https://www.slughug.us/)
 
 
 
