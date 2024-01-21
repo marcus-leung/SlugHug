@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
 import SlugWindow from "../assets/SlugWindow.png";
 
@@ -12,17 +11,6 @@ const Reply = ({ open, close, reply, send, content, head }) => {
     setReplyMessage(text);
     console.log(head, text)
   }
-=======
-import React, {useState} from "react";
-import SlugWindow from "../assets/SlugWindow.png";
-
-const Reply = ({ open, close, reply, send, content, head, onHeadChange, onMessageChange }) => {
-
-const handleReplyClick = (text, head) => {
-    setSubject(head);
-    setReplyMessage(text);
-}
->>>>>>> 1abab2511262a64c14a2fdc5d7f55d2656af0780
 
   if (!open) {
     return null;
