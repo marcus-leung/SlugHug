@@ -61,6 +61,43 @@ const Main = () => {
     }
   }
 
+  // Meaningcloud Sentiment Analysis API
+  function analyzeSentiment(text) { 
+    //event.preventDefault(); 
+    const apiKey = "e1c2247e1f181a436994dbbc262adffb"; 
+    const url = `https://api.meaningcloud.com/sentiment-2.1?key=${apiKey}&txt=${encodeURIComponent( text )}&lang=en`; 
+
+    fetch(url) 
+    .then((response) => { 
+      if (response.ok) { 
+        return response.json(); 
+      } else { 
+        throw new Error("Request failed"); 
+      } 
+    }) 
+    .then((data) => { 
+      const sentiment = data.score_tag; 
+      // console.log(`Text: ${text}`); 
+      // console.log(`Sentiment: ${sentiment}`); 
+      if (sentiment == "P+") { 
+        return "Strong Positive"; 
+      } if (sentiment == "P") { 
+        return "Positive"; 
+      } if (sentiment == "NEU") { 
+        return "Neutral"; 
+      } if (sentiment == "N") { 
+        return "Negative"; 
+      } if (sentiment == "N+") { 
+        return "Strong Negative"; 
+      } if (sentiment == "NONE") { 
+        return "Without Polarity"; 
+      } 
+    }) 
+    .catch((error) => { 
+      console.error("Error:", error); 
+    }); 
+  }
+
   const handleSend = () => {
     setNewMessageOpen(false);
     // Get User
@@ -76,9 +113,13 @@ const Main = () => {
     }
 
     // THIS BAD BOY SENDS THAT DATA YKNOW
-    console.log("WE'RE POSTING A MESSAGE BOIS")
-    console.log(writeObj)
-    createMessage(writeObj)
+    const sentiment = analyzeSentiment(writeObj.messageContent)
+    console.log(sentiment)
+    if(sentiment != "Strong Negative" || sentiment != "Negative") {
+      console.log("WE'RE POSTING A MESSAGE BOIS")
+      console.log(writeObj)
+      createMessage(writeObj)
+    }
   }
 
 
