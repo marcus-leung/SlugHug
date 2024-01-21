@@ -3,7 +3,7 @@ Cruzhacks 2024
 
 SlugHug is a way for anyone to anonymously send a fleeting thought out into the world and receive a memorable reply back, whether they want to vent about their day or just send good vibes. 
 
-Domain: [slughug.us](https://www.slughug.us/)
+Domain: [slughug.us]([https://www.slughug.us/](https://slughug.us/))
 
 Collaborators: Marcus Leung, Aniket Tyagi, Konan Le, Yuanbo (Aaron) Pang
 
