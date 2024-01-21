@@ -5,12 +5,15 @@ import Write from "./Write";
 import SlugIcon from "../assets/SlugIcon.png";
 import composeButton from "../assets/compose.png";
 import backgroundImage from '../assets/bgdone.png';
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Main = () => {
   const [isAccountOpen, setIsAccountOpen] = useState(false);
   const [isNewMessageOpen, setNewMessageOpen] = useState(false);
   const [writeContent, setWriteContent] = useState("");
   const [writeHead, setWriteHead] = useState("");
+  const [userData, updateUserData] = useState("");
+  const { user, isAuthenticated } = useAuth0();
 
   const openMessage = () => {
     setNewMessageOpen(false);
@@ -28,8 +31,54 @@ const Main = () => {
     setWriteHead(content);
   };
 
+  // Create a message
+  async function createMessage(data) {
+    try {
+      const response = await fetch('http://localhost:5000/messages/add', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data)
+      })
+
+      const result = await response.json();
+      console.log("Success:", result)
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
+  // Get user server id from auth0 username
+  async function getUser(name) {
+    try {
+      const response = await fetch('http://localhost:5000/users/getID/'+name)
+      updateUserData(await response.json());
+
+      console.log("Success:", userData)
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
   const handleSend = () => {
     setNewMessageOpen(false);
+    // Get User
+    console.log(user)
+    //getUser(user.email)
+
+    const writeObj = {
+      messageSender: null, 
+      messageHead: writeHead, 
+      messageContent: writeContent, 
+      messageType: "regular", 
+      messageVisibility: "private"
+    }
+
+    // THIS BAD BOY SENDS THAT DATA YKNOW
+    console.log("WE'RE POSTING A MESSAGE BOIS")
+    console.log(writeObj)
+    createMessage(writeObj)
   }
 
 
