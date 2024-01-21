@@ -47,6 +47,7 @@ const Grid = () => {
   const handleSend = () => {
     setIsMessageOpen(false);
     setIsReplyOpen(false);
+    console.log(repliedHead, repliedContent)
   };
 
   const onMessageChange = (content) => {
