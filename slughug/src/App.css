@@ -52,3 +52,6 @@
 .text-front {
     z-index: 200;
 }
+  textarea {
+    resize:none;
+  }
