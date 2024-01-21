@@ -20,7 +20,7 @@ app.listen(port, async () => {
     if (err) console.error(err);
   });
   console.log(`Server is running on port: ${port}`);
-  
+
   /* successful CRUD database push
   let myobj = {
     name: "test_guy",
@@ -110,6 +110,12 @@ async function getInbox(id) {
   } catch (err) {
     console.error(err)
   }
+}
+module.exports ={
+    createUser,
+    createMessage,
+    createResponse,
+    getMessages
 }
 
 // Delete the message by message id
