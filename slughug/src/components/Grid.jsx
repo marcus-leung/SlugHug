@@ -18,13 +18,13 @@ const Grid = () => {
       <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4 px-5 py-5 bg-green-500">
         {Array(24).fill(
           <div onClick={() => handleSlugClick("bruh")}>
-            <Slug />
+            <Slug type="professional" />
           </div>
         )}
       </div>
 
       {isMessageOpen && (
-          <Read message="This is a message" onClick={() => setIsMessageOpen(false)}/>
+          <Read message={messageContent} onClick={() => setIsMessageOpen(false)}/>
       )}
     </div>
   );

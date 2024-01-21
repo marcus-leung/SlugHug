@@ -19,11 +19,11 @@ const Main = () => {
 
       <div className="absolute top-0 right-0 rounded p-4">
         <button onClick={() => setIsAccountOpen(true)}>
-          <img alt="Slug Icon" src={SlugIcon} height={75} width={75} />
+          <img alt="Slug Icon" src={SlugIcon} height={75} width={75} draggable="false"/>
         </button>
       </div>
       {isAccountOpen && (
-        <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50">
           <Account onClick={() => setIsAccountOpen(false)} />
         </div>
       )}

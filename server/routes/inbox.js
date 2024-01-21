@@ -42,10 +42,10 @@ inboxRoutes.route("/inbox/add").post(function (req, response) {
     });
    });
 
-// This section will help you get a single inbox by id
+// This section will help you get a single inbox by the message receiver parameter
 inboxRoutes.route("/inbox/get/:id").get(function (req, res) {
   let db_connect = dbo.getDb();
-  let myquery = { _id: new ObjectId(req.params.id) };
+  let myquery = { messageReceiver: new ObjectId(req.params.id) };
   console.log(req.params.id)
   db_connect
     .collection("inbox")
@@ -55,7 +55,7 @@ inboxRoutes.route("/inbox/get/:id").get(function (req, res) {
     });
  });   
 
-// This section will help you delete a user
+// This section will help you delete an inbox given the id
 inboxRoutes.route("inbox/delete/:id").delete((req, response) => {
   let db_connect = dbo.getDb();
   let myquery = { _id: ObjectId(req.params.id) };
