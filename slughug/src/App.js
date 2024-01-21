@@ -5,7 +5,6 @@ import AuthenticationSection from "./components/AuthenticationSection";
 function App() {
   return (
     <div className="App">
-        <AuthenticationSection/>
         <Main />
     </div>
   );
