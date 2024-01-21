@@ -13,7 +13,7 @@ const Slug = ({ type }) => {
 
   const rand_index = Math.floor(Math.random() * slug_arr.length);
 
-  const isProf = false;
+  let isProf = false;
   if (type == "professional") {
     isProf = true;
   }
