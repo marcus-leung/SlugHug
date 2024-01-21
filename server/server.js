@@ -111,3 +111,54 @@ async function getInbox(id) {
     console.error(err)
   }
 }
+
+// Delete the messages
+async function deleteMessage(id) {
+  try {
+    const response = await fetch('http://localhost:5000/messages/delete/'+id, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      }
+    })
+    const result = await response.json();
+
+    console.log("Success:", result)
+  } catch (err) {
+    console.error(err)
+  }
+}
+
+// Delete an inbox
+async function deleteInbox(id) {
+  try {
+    const response = await fetch('http://localhost:5000/inbox/delete/'+id, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      }
+    })
+    const result = await response.json();
+
+    console.log("Success:", result)
+  } catch (err) {
+    console.error(err)
+  }
+}
+
+// Delete an inbox
+async function deleteUser(id) {
+  try {
+    const response = await fetch('http://localhost:5000/user/delete/'+id, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      }
+    })
+    const result = await response.json();
+
+    console.log("Success:", result)
+  } catch (err) {
+    console.error(err)
+  }
+}
