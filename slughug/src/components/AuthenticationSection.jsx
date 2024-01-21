@@ -27,7 +27,11 @@ const AuthenticationSection = () => {
         console.log("useEffect triggered", { isAuthenticated, user });
         if(isAuthenticated){
             console.log("user", user.name)
-            createUser(user.name)
+            let myObj = {
+                userName: user.name,
+                userType: "regular"
+            }
+            createUser(myObj)
         }
 
     }, [user, isAuthenticated]);
