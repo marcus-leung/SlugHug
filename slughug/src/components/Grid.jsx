@@ -69,18 +69,23 @@ const Grid = () => {
   const handleSend = () => {
     setIsMessageOpen(false);
     setIsReplyOpen(false);
-    setReplyState({
+    console.log({
       messageReceiver: authObject.user, 
       messageHead: repliedHead, 
       messageContent: repliedContent, 
       messageType: "regular", 
       messageVisibility: "private"
     })
+    const replyObj = {
+      messageReceiver: authObject.user, 
+      messageHead: repliedHead, 
+      messageContent: repliedContent, 
+      messageType: "regular", 
+      messageVisibility: "private"
+    }
 
     // THIS BAD BOY SENDS THAT DATA YKNOW
-    createResponse(reply)
-
-    console.log(repliedHead, repliedContent)
+    createResponse(replyObj)
   };
 
   const onMessageChange = (content) => {
