@@ -27,14 +27,14 @@ const Reply = ({
     <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50">
       <div className="w-full h-5/6 relative">
         <div className="read-container">
-          <img
+            <img
             src={SlugWindow}
             alt="Slug Window"
             className="block mx-auto"
             draggable="false"
           />
-        </div>
-
+        
+        
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-md mt-20 text-black">
           <form onSubmit={handleSubmit}>
             <label
@@ -73,6 +73,7 @@ const Reply = ({
               className="block  mx-auto p-3 rounded-lg  bg-yellow-100"
             ></textarea>
           </form>
+          
         </div>
 
         <button
@@ -88,6 +89,7 @@ const Reply = ({
         >
           Send
         </button>
+        </div>
       </div>
     </div>
   );
