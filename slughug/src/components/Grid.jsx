@@ -88,6 +88,7 @@ const Grid = () => {
   // Create a response to a given userID, it's in the data object
   async function createResponse(data) {
     try {
+      data.messageType = "response"
       const response = await fetch('http://localhost:5000/inbox/add', {
         method: "POST",
         headers: {
