@@ -6,6 +6,8 @@ import Reply from "./Reply";
 const Grid = () => {
   const [isMessageOpen, setIsMessageOpen] = useState(false);
   const [messageContent, setMessageContent] = useState("");
+  const [repliedContent, setRepliedContent] = useState("");
+  const [repliedHead, setRepliedHead] = useState("");
   const [messageHead, setMessageHead] = useState("");
   const [db, setDBState] = useState([]);
   // adjust let -> setState
@@ -47,6 +49,14 @@ const Grid = () => {
     setIsReplyOpen(false);
   };
 
+  const onMessageChange = (content) => {
+    setRepliedContent(content);
+  };
+
+  const onHeadChange = (content) => {
+    setRepliedHead(content);
+  };
+
   const handleSlugClick = (text, head) => {
     if (!isMessageOpen) {
       setMessageContent(text);
@@ -84,7 +94,10 @@ const Grid = () => {
         close={closeReply}
         reply={openReply}
         send={handleSend}
-        content="Reply message"
+        content={repliedContent}
+        head={repliedHead}
+        onHeadChange={onHeadChange}
+        onMessageChange={onMessageChange}
       />
     </div>
   );

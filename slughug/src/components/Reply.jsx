@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
 import SlugWindow from "../assets/SlugWindow.png";
 
@@ -11,6 +12,17 @@ const Reply = ({ open, close, reply, send, content, head }) => {
     setReplyMessage(text);
     console.log(head, text)
   }
+=======
+import React, {useState} from "react";
+import SlugWindow from "../assets/SlugWindow.png";
+
+const Reply = ({ open, close, reply, send, content, head, onHeadChange, onMessageChange }) => {
+
+const handleReplyClick = (text, head) => {
+    setSubject(head);
+    setReplyMessage(text);
+}
+>>>>>>> 1abab2511262a64c14a2fdc5d7f55d2656af0780
 
   if (!open) {
     return null;
@@ -39,8 +51,8 @@ const Reply = ({ open, close, reply, send, content, head }) => {
               type="text"
               id="message"
               name="Message"
-              value={subject}
-              onChange={(e) => setSubject(e.target.value)}
+              value={head}
+              onChange={(e) => onHeadChange(e.target.value)}
               className="block  mx-auto p-3 rounded-lg  bg-yellow-100"
             ></textarea>
             <label
@@ -55,8 +67,8 @@ const Reply = ({ open, close, reply, send, content, head }) => {
               type="text"
               id="message"
               name="Message"
-              value={replyMessage}
-              onChange={(e) => setReplyMessage(e.target.value)}
+              value={content}
+              onChange={(e) => onMessageChange(e.target.value)}
               className="block  mx-auto p-3 rounded-lg  bg-yellow-100"
             ></textarea>
           </form>
