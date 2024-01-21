@@ -43,7 +43,7 @@ inboxRoutes.route("/inbox/add").post(function (req, response) {
    });
 
 // This section will help you get a single inbox by id
-inboxRoutes.route("/inbox/:id").get(function (req, res) {
+inboxRoutes.route("/inbox/get/:id").get(function (req, res) {
   let db_connect = dbo.getDb();
   let myquery = { _id: new ObjectId(req.params.id) };
   console.log(req.params.id)
@@ -54,6 +54,17 @@ inboxRoutes.route("/inbox/:id").get(function (req, res) {
       res.json(result);
     });
  });   
+
+// This section will help you delete a user
+inboxRoutes.route("inbox/delete/:id").delete((req, response) => {
+  let db_connect = dbo.getDb();
+  let myquery = { _id: ObjectId(req.params.id) };
+  db_connect.collection("inbox").deleteOne(myquery, function (err, obj) {
+    if (err) throw err;
+    console.log("1 document deleted");
+    response.json(obj);
+  });
+ });
 
 // Get access to our routing object
 module.exports = inboxRoutes;
