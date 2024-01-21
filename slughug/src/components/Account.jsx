@@ -8,7 +8,7 @@ const Account = ({ onClick }) => {
       <div className="bg-blue-300 w-[480px] h-[340px] rounded-md">
         <h1 className="font-bold text-xl text-center pt-5">Account</h1>
 
-        <img src={SlugPic} alt="Slug Picture" className="mx-auto" height={190} width={190} />
+        <img src={SlugPic} alt="Slug Picture" className="mx-auto transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 duration-120" height={190} width={190} />
         
         <div class="flex items-center justify-between px-5 mt-4">
           <button
