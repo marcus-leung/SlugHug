@@ -1,7 +1,11 @@
 import React from "react";
 import SlugWindow from "../assets/SlugWindow.png";
 
-const Write = ({ onClick }) => {
+const Reply = ({ open, close, reply, send, content }) => {
+  if (!open) {
+    return null;
+  }
+
   return (
     <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50">
       <div className="w-full h-5/6 relative">
@@ -46,14 +50,14 @@ const Write = ({ onClick }) => {
 
         <button
           className="absolute mt-4 bg-yellow-600 shadow-md text-white px-4 py-2 rounded bottom-0 left-0 -translate-y-12 translate-x-12"
-          onClick={onClick}
+          onClick={close}
         >
           Close
         </button>
 
         <button
           className="absolute mt-4 bg-green-600 shadow-md text-white px-4 py-2 rounded bottom-0 right-0 -translate-y-12 -translate-x-12"
-          onClick={onClick}
+          onClick={send}
         >
           Send
         </button>
@@ -62,4 +66,4 @@ const Write = ({ onClick }) => {
   );
 };
 
-export default Write;
+export default Reply;

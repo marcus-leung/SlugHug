@@ -14,7 +14,7 @@ const Slug = ({ type }) => {
   const rand_index = Math.floor(Math.random() * slug_arr.length);
 
   let isProf = false;
-  if (type == "professional") {
+  if (type === "professional") {
     isProf = true;
   }
 
@@ -29,6 +29,7 @@ const Slug = ({ type }) => {
 
     return () => clearInterval(timer);
   }, []);
+  
   return (
     <div
       className={`cursor-pointer aspect-square w-[170px] h-[170px] justify-center items-center ${
