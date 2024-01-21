@@ -25,6 +25,10 @@ recordRoutes.route("/users").get(async function (req, response) {
     });
 
 });
+
+/*
+DEPRECATED
+
 // GET route to find user by userName
 recordRoutes.route('/users/find-by-name').get(function (req, res) {
     let db_connect = dbo.getDb();
@@ -41,6 +45,26 @@ recordRoutes.route('/users/find-by-name').get(function (req, res) {
             }
         }
     });
+});
+*/
+
+// This section will help you get a user by name
+recordRoutes.route("/users/find-by-name/:name").get(async function (req, response) {
+  let db_connect = dbo.getDb();
+  let myquery = { userName: new ObjectId(req.params.id) };
+
+  db_connect
+    .collection("users")
+    .find(myquery)
+    .toArray()
+    .then((data) => {
+      if(data.length == 0) {
+        response.status(404).send('User not found');
+      } else {
+        response.status(200).json(result);
+      }
+    });
+
 });
  
 // This section will help you create a new user.
