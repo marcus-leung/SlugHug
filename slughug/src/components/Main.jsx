@@ -22,7 +22,7 @@ const Main = () => {
       <div className="absolute top-0 left-0 rounded p-4" onClick={() => setNewMessageOpen(true)}>
       <div onClick={() => setNewMessageOpen(true)}>
         {/* new button for compose */}
-        <img src={composeButton} alt="Send Message" height={75} width={75} draggable="false"/>
+        <img src={composeButton} alt="Send Message" height={75} width={75} className="cursor-pointer" draggable="false"/>
       </div>
       </div>
 
