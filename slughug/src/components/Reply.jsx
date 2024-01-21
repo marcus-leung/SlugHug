@@ -1,7 +1,15 @@
-import React, {useState} from "react";
+import React from "react";
 import SlugWindow from "../assets/SlugWindow.png";
 
 const Reply = ({ open, close, reply, send, content, head, onHeadChange, onMessageChange }) => {
+  const handleReplyClick = (text, head) => {
+    setSubject(head);
+    setReplyMessage(text);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  };
 
   if (!open) {
     return null;
@@ -17,7 +25,7 @@ const Reply = ({ open, close, reply, send, content, head, onHeadChange, onMessag
           draggable="false"
         />
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-md mt-20 text-black">
-          <form>
+          <form onSubmit={handleSubmit}>
             <label
               htmlFor="head"
               className="font-bold block text-center mb-2 text-xl"
