@@ -70,7 +70,7 @@ async function createMessage(data) {
   }
 }
 
-// Create a response
+// Create a response to a given userID, it's in the data object
 async function createResponse(data) {
   try {
     const response = await fetch('http://localhost:5000/inbox/add', {
@@ -88,7 +88,7 @@ async function createResponse(data) {
   }
 }
 
-// Get the messages
+// Get the messages all
 async function getMessages() {
   try {
     const response = await fetch('http://localhost:5000/messages')
@@ -100,7 +100,7 @@ async function getMessages() {
   }
 }
 
-// Get an inbox
+// Get an inbox by inbox receiver
 async function getInbox(id) {
   try {
     const response = await fetch('http://localhost:5000/inbox/get/'+id)
@@ -112,7 +112,7 @@ async function getInbox(id) {
   }
 }
 
-// Delete the messages
+// Delete the message by message id
 async function deleteMessage(id) {
   try {
     const response = await fetch('http://localhost:5000/messages/delete/'+id, {
@@ -129,7 +129,7 @@ async function deleteMessage(id) {
   }
 }
 
-// Delete an inbox
+// Delete an inbox by inbox id
 async function deleteInbox(id) {
   try {
     const response = await fetch('http://localhost:5000/inbox/delete/'+id, {
@@ -146,7 +146,7 @@ async function deleteInbox(id) {
   }
 }
 
-// Delete an inbox
+// Delete a user by table id
 async function deleteUser(id) {
   try {
     const response = await fetch('http://localhost:5000/user/delete/'+id, {
