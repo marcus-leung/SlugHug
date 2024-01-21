@@ -1,13 +1,21 @@
 import React from "react";
 import SlugWindow from "../assets/SlugWindow.png";
 
-const Reply = ({ open, close, reply, send, content, head, onHeadChange, onMessageChange }) => {
-
+const Reply = ({
+  open,
+  close,
+  reply,
+  send,
+  content,
+  head,
+  onHeadChange,
+  onMessageChange,
+}) => {
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("THIS IS FROM HANDLE FUNCTION!!!!!")
-    console.log(event.target.Subject.value)
-    console.log(event.target.Message.value)
+    console.log("THIS IS FROM HANDLE FUNCTION!!!!!");
+    console.log(event.target.Subject.value);
+    console.log(event.target.Message.value);
     //send();
   };
 
@@ -18,15 +26,21 @@ const Reply = ({ open, close, reply, send, content, head, onHeadChange, onMessag
   return (
     <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50">
       <div className="w-full h-5/6 relative">
-        <img
-          src={SlugWindow}
-          alt="Slug Window"
-          className="block mx-auto"
-          draggable="false"
-        />
+        <div className="read-container">
+          <img
+            src={SlugWindow}
+            alt="Slug Window"
+            className="block mx-auto"
+            draggable="false"
+          />
+        </div>
+
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-md mt-20 text-black">
           <form onSubmit={handleSubmit}>
-            <label htmlFor="head" className="font-bold block text-center mb-2 text-xl">
+            <label
+              htmlFor="head"
+              className="font-bold block text-center mb-2 text-xl"
+            >
               Subject
             </label>
 
@@ -40,8 +54,11 @@ const Reply = ({ open, close, reply, send, content, head, onHeadChange, onMessag
               onChange={(e) => onHeadChange(e.target.value)}
               className="block  mx-auto p-3 rounded-lg  bg-yellow-100"
             ></textarea>
-            
-            <label htmlFor="message" className="font-bold block text-center mb-2 text-xl pt-5">
+
+            <label
+              htmlFor="message"
+              className="font-bold block text-center mb-2 text-xl pt-5"
+            >
               Reply Message
             </label>
 
