@@ -6,6 +6,9 @@ const Reply = ({ open, close, reply, send, content }) => {
     return null;
   }
 
+  const [subject, setSubject] = useState('');
+  const [replyMessage, setReplyMessage] = useState('');
+
   return (
     <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50">
       <div className="w-full h-5/6 relative">
@@ -29,6 +32,8 @@ const Reply = ({ open, close, reply, send, content }) => {
               type="text"
               id="message"
               name="Message"
+              subject={subject}
+              onChange={(e) => setSubject(e.target.value)}
               className="block  mx-auto p-3 rounded-lg  bg-yellow-100"
             ></textarea>
             <label
@@ -43,6 +48,8 @@ const Reply = ({ open, close, reply, send, content }) => {
               type="text"
               id="message"
               name="Message"
+              message={replyMessage}
+              onChange={(e) => setReplyMessage(e.target.value)}
               className="block  mx-auto p-3 rounded-lg  bg-yellow-100"
             ></textarea>
           </form>

@@ -31,7 +31,7 @@ const Write = ({ onClick }) => {
               htmlFor="message"
               className="font-bold block text-center mb-2 text-xl pt-5"
             >
-              Reply Message
+              Message
             </label>
             <textarea
               rows="8"
