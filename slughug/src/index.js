@@ -13,8 +13,8 @@ const root = createRoot(container); // Create root with createRoot, no need to u
 root.render(
     <React.StrictMode>
         <Auth0Provider
-            domain="dev-yuanbopang.us.auth0.com"
-            clientId="Q48AXNPiXkzfczkJvDAIMpUQKW9CYq6w"
+            domain="dev-slughub.us.auth0.com"
+            clientId="KE2HGKGJMudGNuy2UORc4j35VvSxOkHd"
             authorizationParams={{
                 redirect_uri: "http://localhost:3000" // 设置重定向的URL为localhost:3000
             }}
